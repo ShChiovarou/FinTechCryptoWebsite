@@ -11,24 +11,68 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Light gray background */
+            /* Animated gradient background */
+            background: linear-gradient(-45deg, #e0f2f7, #e3f2fd, #e8f5e9, #fbe9e7);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh; /* Ensure it covers the full viewport height */
+            display: flex;
+            flex-direction: column;
         }
+
+        /* Keyframe animation for the background gradient */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         /* Custom styles for a subtle shadow and rounded corners */
         .card {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            border-radius: 1.25rem; /* More rounded */
+            transition: transform 0.3s ease-in-out; /* Smooth transition for hover */
         }
+        .card:hover {
+            transform: translateY(-5px); /* Subtle lift on hover */
+        }
+
+        /* Animation for elements appearing */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delay for sequential animations */
+        .fade-in-up-1 { animation-delay: 0.2s; }
+        .fade-in-up-2 { animation-delay: 0.4s; }
+        .fade-in-up-3 { animation-delay: 0.6s; }
+        .fade-in-up-4 { animation-delay: 0.8s; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
     <!-- Header/Navigation Bar -->
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 shadow-lg">
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-4 shadow-xl">
         <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-            <a href="index.html" class="text-3xl font-bold mb-2 sm:mb-0">Drachma <span class="text-blue-200 text-xl">($DRM)</span></a>
+            <a href="/FinTechCryptoWebsite/index.html" class="text-3xl font-bold mb-2 sm:mb-0">Drachma <span class="text-blue-300 text-xl">($DRM)</span></a>
             <div class="flex space-x-4">
-                <a href="index.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-700">Home</a>
-                <a href="details.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-700">Details</a>
-                <a href="about.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-700">About Me</a>
+                <a href="/FinTechCryptoWebsite/index.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-800 font-medium">Home</a>
+                <a href="/FinTechCryptoWebsite/details.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-800 font-medium">Details</a>
+                <a href="/FinTechCryptoWebsite/about.html" class="text-white hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-blue-800 font-medium">About Me</a>
             </div>
         </nav>
     </header>
@@ -36,27 +80,27 @@
     <!-- Main Content - Home Page -->
     <main class="flex-grow container mx-auto p-6 flex flex-col items-center justify-center">
         <section class="bg-white card p-8 md:p-12 text-center max-w-4xl w-full">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight fade-in-up">
                 Eliminate ATM Fees, Instantly.
             </h1>
-            <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-1">
                 Introducing <span class="font-semibold text-blue-600">Drachma ($DRM)</span>, the crypto-native solution that provides instant, automated reimbursement for out-of-network ATM fees. Reclaim your financial freedom.
             </p>
 
-            <!-- Placeholder Image/Icon -->
-            <div class="mb-10">
-                <img src="https://placehold.co/600x300/e0e7ff/3f51b5?text=Drachma+Symbol" alt="Drachma Symbol Placeholder" class="mx-auto rounded-lg shadow-md max-w-full h-auto">
+            <!-- Placeholder Image/Icon - More relevant placeholder text -->
+            <div class="mb-10 fade-in-up fade-in-up-2">
+                <img src="https://placehold.co/600x300/60a5fa/ffffff?text=Drachma+Token+Reimbursement" alt="Drachma Symbol Placeholder" class="mx-auto rounded-lg shadow-md max-w-full h-auto">
             </div>
 
-            <!-- Navigation Buttons -->
+            <!-- Navigation Buttons - Enhanced hover effects and animations -->
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                <a href="/FinTechCryptoWebsite/index.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg fade-in-up fade-in-up-3">
                     Home
                 </a>
-                <a href="details.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                <a href="/FinTechCryptoWebsite/details.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg fade-in-up fade-in-up-4">
                     Learn More About $DRM
                 </a>
-                <a href="about.html" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                <a href="/FinTechCryptoWebsite/about.html" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg fade-in-up fade-in-up-4">
                     About the Creator
                 </a>
             </div>
